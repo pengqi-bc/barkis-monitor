@@ -1,4 +1,4 @@
-module github.com/barkisnet/monitor
+module github.com/barkisnet/barkis-monitor
 
 go 1.13
 
