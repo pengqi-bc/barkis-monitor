@@ -72,6 +72,7 @@ func (node *Node) QueryValiatorList(page, limit int, status string) ([]*Validato
 	var vals []*Validator
 	for _, val := range validators {
 		vals = append(vals, &Validator{
+			Counter:         0,
 			OperatorAddr:    val.OperatorAddress,
 			ConsensusAddr:   val.ConsPubKey.Address(),
 			ConsensusPubKey: val.ConsPubKey,

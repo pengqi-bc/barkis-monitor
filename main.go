@@ -13,7 +13,7 @@ func main() {
 	cdc := app.MakeCodec()
 
 	chainID := "barkisnet"
-	rpcNode := node.NewNode(chainID, "http://18.176.62.187:26657", nil, cdc)
+	rpcNode := node.NewNode(chainID, "http://18.176.62.187:26657", cdc)
 
 	latestHeight, err := rpcNode.GetLatestHeight()
 	if err != nil {

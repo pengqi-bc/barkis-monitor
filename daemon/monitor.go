@@ -9,7 +9,10 @@ import (
 )
 
 const (
-	sleepSecond = 5
+	sleepSecond           = 5
+	threshholdMissedBlock = 100
+	botId                 = "1277648385:AAEFE5fFExzmGvcIN5Z1Gyulzma-8nLE8os"
+	chatId                = "@bks_monitor"
 )
 
 func MonitorDaemon(startHeight int64, rpcNode *node.Node, validatorList []*node.Validator) {
@@ -30,20 +33,22 @@ func MonitorDaemon(startHeight int64, rpcNode *node.Node, validatorList []*node.
 			}
 		}
 
-		var missedVals []*node.Validator
 		for _, val := range validatorList {
 			_, ok := commitsMap[val.ConsensusAddr.String()]
 			if !ok {
-				missedVals = append(missedVals, val)
-			}
-		}
-
-		if len(missedVals) != 0 {
-			fmt.Println(fmt.Println("Miss commit from validators:"))
-			for _, val := range missedVals {
+				val.Counter++
 				consensusPubKey, _ := sdk.Bech32ifyConsPub(val.ConsensusPubKey)
 				fmt.Println(fmt.Sprintf("operatorAddr: %s, consensusPubKey: %s", val.OperatorAddr.String(), consensusPubKey))
+				if val.Counter >= threshholdMissedBlock {
+					alertToTg(fmt.Sprintf("validator missed more than %d blocks, operator addr: %s, consensus pubkey: %s", threshholdMissedBlock, val.OperatorAddr.String(), consensusPubKey))
+				}
+			} else {
+				val.Counter = 0
 			}
 		}
 	}
+}
+
+func alertToTg(msg string) {
+	sendTelegramMessage(botId, chatId, msg)
 }

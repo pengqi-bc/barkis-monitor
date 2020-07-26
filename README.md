@@ -1,6 +1,12 @@
 # Barkis Monitor
 
-## Start
+## Compile
+
+```shell script
+make build
+```
+
+## Run
 
 ```shell script
 ./build/barkis-monitor
