@@ -3,10 +3,10 @@ package main
 import (
 	"fmt"
 
+	"github.com/barkisnet/barkis-monitor/daemon"
+	"github.com/barkisnet/barkis-monitor/node"
 	"github.com/barkisnet/barkis/app"
 	sdk "github.com/barkisnet/barkis/types"
-	"github.com/barkisnet/monitor/daemon"
-	"github.com/barkisnet/monitor/node"
 )
 
 func main() {

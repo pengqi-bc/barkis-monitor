@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/barkisnet/barkis-monitor/node"
 	sdk "github.com/barkisnet/barkis/types"
-	"github.com/barkisnet/monitor/node"
 )
 
 const (

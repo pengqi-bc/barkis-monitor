@@ -1,12 +1,12 @@
 package node
 
 import (
+	"github.com/barkisnet/barkis-monitor/key"
 	"github.com/barkisnet/barkis/codec"
 	sdk "github.com/barkisnet/barkis/types"
 	"github.com/barkisnet/barkis/x/auth"
 	authcutils "github.com/barkisnet/barkis/x/auth/client/utils"
 	"github.com/barkisnet/barkis/x/auth/exported"
-	"github.com/barkisnet/monitor/key"
 	"github.com/tendermint/tendermint/crypto"
 	cmn "github.com/tendermint/tendermint/libs/common"
 	rpcclient "github.com/tendermint/tendermint/rpc/client"
