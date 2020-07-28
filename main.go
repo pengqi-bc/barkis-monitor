@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 
+	"github.com/barkisnet/barkis-monitor/constant"
 	"github.com/barkisnet/barkis-monitor/daemon"
 	"github.com/barkisnet/barkis-monitor/node"
 	"github.com/barkisnet/barkis/app"
@@ -12,8 +13,7 @@ import (
 func main() {
 	cdc := app.MakeCodec()
 
-	chainID := "barkisnet"
-	rpcNode := node.NewNode(chainID, "http://18.176.62.187:26657", cdc)
+	rpcNode := node.NewNode(constant.ChainID, constant.NodeRpc, cdc)
 
 	latestHeight, err := rpcNode.GetLatestHeight()
 	if err != nil {

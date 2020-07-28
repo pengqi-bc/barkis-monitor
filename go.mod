@@ -3,9 +3,9 @@ module github.com/barkisnet/barkis-monitor
 go 1.13
 
 require (
+	github.com/barkisnet/barkis v0.0.0-20200307124653-9882dc2ed461
 	github.com/btcsuite/btcd v0.0.0-20190523000118-16327141da8c
 	github.com/cosmos/go-bip39 v0.0.0-20180819234021-555e2067c45d
-	github.com/barkisnet/barkis v0.0.0-20200307124653-9882dc2ed461
 	github.com/tendermint/tendermint v0.32.2
 	golang.org/x/crypto v0.0.0-20190313024323-a1f597ede03a
 )
